@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+  <div class="main">
+  <h2 class="m-0 text-primary"></i>TODO Plannar</h2>
+  </div>
+    <div class="mycard">
+      <h1>Your to do's</h1>
+      <ul>
+        {% for x in user.todolist.all %}
+          <li onclick="window.location = '/{{ x.id }}'">{{ x.name }}</li>
+        {% endfor %}
+        <div class="main">
+            <p class="m-0 text-primary"><a href="/create">CTREATE NEW ITEM</a></p>
+        <div class="main">
+      </ul>
+    </div>
+{% endblock %}

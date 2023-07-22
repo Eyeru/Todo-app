@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+View
+{% endblock %}
+
+{% block content %}
+<div class="mycard">
+    <ul>
+        {% for td in user.todolist.all %}
+        <li onclick="window.location = '/{{ x.id }}'">{{ td.name }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
