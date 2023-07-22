@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect, render, get_object_or_404
 
 # Create your views here.
 from django.http import HttpResponseRedirect
@@ -31,6 +32,13 @@ def index(request, id):
 				ls.item_set.create(text=newItem, complete=False)
 			else:
 				print("invalid")
+		elif request.POST.get("delete"):
+			for item in ls.item_set.all():
+				 
+				if item.complete == True:
+					obj = get_object_or_404(Item, id=item.pk)
+					obj.delete()
+
 
 	return render(request, "index.html", {"ls": ls})
                  
